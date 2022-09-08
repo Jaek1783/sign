@@ -5,7 +5,7 @@ import Login from './Login';
 import Mypage from './Mypage';
 //전체 로직
 import {auth,db} from "./firebase";
-import {collection, addDoc, getDocs, where, query, connectFirestoreEmulator} from "firebase/firestore";
+import {collection, addDoc, getDocs, where, query} from "firebase/firestore";
 //회원가입 로직
 import {
   createUserWithEmailAndPassword,
