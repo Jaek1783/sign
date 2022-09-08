@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/jaek1783.git.io/sign/static/css/main.9638104e.css",
-    "main.js": "/jaek1783.git.io/sign/static/js/main.e43111ff.js",
+    "main.css": "/jaek1783.git.io/sign/static/css/main.6dd7b490.css",
+    "main.js": "/jaek1783.git.io/sign/static/js/main.bbf127b5.js",
     "index.html": "/jaek1783.git.io/sign/index.html",
-    "main.9638104e.css.map": "/jaek1783.git.io/sign/static/css/main.9638104e.css.map",
-    "main.e43111ff.js.map": "/jaek1783.git.io/sign/static/js/main.e43111ff.js.map"
+    "main.6dd7b490.css.map": "/jaek1783.git.io/sign/static/css/main.6dd7b490.css.map",
+    "main.bbf127b5.js.map": "/jaek1783.git.io/sign/static/js/main.bbf127b5.js.map"
   },
   "entrypoints": [
-    "static/css/main.9638104e.css",
-    "static/js/main.e43111ff.js"
+    "static/css/main.6dd7b490.css",
+    "static/js/main.bbf127b5.js"
   ]
 }
