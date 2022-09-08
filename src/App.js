@@ -3,7 +3,6 @@ import React,{useEffect, useRef, useState} from 'react';
 import Sign from './Sign';
 import Login from './Login';
 import Mypage from './Mypage';
-
 //전체 로직
 import {auth,db} from "./firebase";
 import {collection, addDoc, getDocs, where, query, connectFirestoreEmulator} from "firebase/firestore";
@@ -18,6 +17,7 @@ import {
 import {signInWithEmailAndPassword} from "firebase/auth";
 function App() {
 //회원가입 Ref
+  const signContainer = useRef(null);
   const emailRef = useRef(null);
   const passwdRef = useRef(null);
   const nameRef = useRef(null);
@@ -26,6 +26,7 @@ function App() {
   const pwDesc = useRef(null);
 
 //로그인 Ref & State
+  const loginContainer = useRef(null);
   const idRef = useRef(null);
   const pwRef = useRef(null);
   const [isLogin, setIsLogin] = useState(false);
@@ -93,8 +94,18 @@ function App() {
     console.log(isLogin);
   return (
     <div className="App">
+      <h1>회원가입로직</h1>
       <div className="container">
+      <div className="buttonContainer">
+        <button className="sign" onClick={()=>{
+          signContainer.current.style.display = "flex";
+        }}>회원가입</button>
+        <button className="login" onClick={()=>{
+          loginContainer.current.style.display = "flex";
+        }}>로그인</button>
+      </div>
         <Sign 
+          signContainer = {signContainer}
           signUp={signUp}
           nameRef={nameRef}
           emailRef={emailRef}
@@ -104,6 +115,7 @@ function App() {
           pwDesc={pwDesc}
         />
         <Login
+          loginContainer = {loginContainer}
           auth={auth}
           loginFB={loginFB}
           idRef={idRef}

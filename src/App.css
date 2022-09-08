@@ -12,7 +12,9 @@ a{
     text-decoration: none;
     color:inherit;
 }
-
+h1{
+    padding:1rem;
+}
 div.container{
     width:700px;
     padding:.5rem;
@@ -31,12 +33,26 @@ div.container{
     margin:.5rem;
     padding:.5rem;
 }
+.buttonContainer{
+    width:500px;
+    border:1px solid #ccc;
+    margin-bottom:2rem;
+}
+.buttonContainer>button{
+    padding:1rem;
+    margin:2rem;
+}
 .signContainer{
     width:300px;
     text-align: right;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     border:1px solid #ccc;
+    display:none;
+}
+.signContainer>small{
+    padding:10px;
+    cursor: pointer;
 }
 .signContainer>p{
     padding:.5rem;
@@ -48,11 +64,15 @@ div.container{
 .loginContainer{
     width:300px;
     text-align:right;
-    display:flex;
     flex-direction: column;
     border:1px solid #ccc;
     padding:.5rem;
     margin-left:.5rem;
+    display:none;
+}
+.loginContainer>small{
+    padding:10px;
+    cursor: pointer;
 }
 .loginContainer>p{
     padding:.5rem;
@@ -68,9 +88,12 @@ div.container{
 .MypageContainer{
     width:700px;
     border:1px solid #ccc;
-    display:flex;
-    padding:2rem;
+    padding:1rem;
     margin-top:3rem;
+}
+.descContainer{
+    display:flex;
+    text-align: left;
 }
 .MyPic{
     width:10rem;

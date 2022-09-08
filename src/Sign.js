@@ -1,8 +1,11 @@
-import React,{useEffect} from "react";
+import React from "react";
 
-const Sign = ({nameRef, emailRef, passwdRef, signUp,emailDesc, nameDesc, pwDesc})=>{
+const Sign = ({signContainer, nameRef, emailRef, passwdRef, signUp,emailDesc, nameDesc, pwDesc})=>{
     return(
-        <div className="signContainer">
+        <div className="signContainer" ref={signContainer}>
+            <small onClick={()=>{
+                signContainer.current.style.display="none";
+            }}>X</small>
             <p>
                 Name
                 <input type="text" ref={nameRef}/><br/>
