@@ -1,38 +1,63 @@
-.App {
-  text-align: center;
+*{
+    padding:0;
+    margin:0;
+}
+img{
+    width:100%;
+}
+ul,ol,dl,dt,dd,li{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color:inherit;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+div.container{
+    padding:.5rem;
+    display:flex;
+    justify-content: center;
+    margin:0 auto;
+    text-align: center;
+    position:absolute;
+    top:20%;
+    left:50%;
+    transform: translate(-50%);
+}
+.item{
+    margin:.5rem;
+    padding:.5rem;
+}
+.signContainer{
+    width:300px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    border:1px solid #ccc;
+}
+.signContainer>p{
+    padding:.5rem;
+}
+.signContainer>p>input{
+    margin-left:.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.loginContainer{
+    width:300px;
+    text-align:right;
+    display:flex;
+    flex-direction: column;
+    border:1px solid #ccc;
+    padding:.5rem;
+    margin-left:.5rem;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.loginContainer>p{
+    padding:.5rem;
 }
-
-.App-link {
-  color: #61dafb;
+.loginContainer>p>input{
+    margin-left:.5rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loginContainer>button{
+    margin-top:.5rem;
+    padding:.5rem;
 }
