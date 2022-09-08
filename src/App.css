@@ -54,10 +54,16 @@ div.container{
     padding:10px;
     cursor: pointer;
 }
-.signContainer>p{
+.signContainer p.pic{
+    text-align: left;
+}
+p.pic>input{
+    padding-left:10px;
+}
+.signContainer p{
     padding:.5rem;
 }
-.signContainer>p>input{
+.signContainer p>input{
     margin-left:.5rem;
 }
 
@@ -68,7 +74,7 @@ div.container{
     border:1px solid #ccc;
     padding:.5rem;
     margin-left:.5rem;
-    display:none;
+    display: flex;
 }
 .loginContainer>small{
     padding:10px;
@@ -93,14 +99,56 @@ div.container{
 }
 .descContainer{
     display:flex;
-    text-align: left;
+    justify-content: center;
 }
 .MyPic{
+    display:flex;
+    flex-direction: column;
+}
+.MyPic>img{
+    width:150px;
+}
+.pic{
     width:10rem;
     height:12rem;
     background-color:#ccc;
     margin-right:2rem;
 }
+.MyPic>input{
+    padding-top:.5rem;
+}
 .MyDesc>p{
     padding:1rem;
+}
+
+.modal{
+    width:500px;
+    /* height:250px; */
+    padding:1rem;
+    border:1px solid #ccc;
+    background-color: #fff;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%);
+    display:none;
+}
+.modal>p{
+    text-align: right;
+    padding:10px;
+    cursor: pointer;
+}
+.modalContainer{
+    display: flex;
+    justify-content: center;
+}
+.modalContainer>img{
+    width:10rem;
+    padding-right:1rem;
+}
+button.save{
+    width:100%;
+    padding:1rem 0;
+    margin:10px 0;
+    font-size: 1rem;
 }

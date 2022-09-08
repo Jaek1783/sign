@@ -3,9 +3,10 @@ import React,{useEffect, useRef, useState} from 'react';
 import Sign from './Sign';
 import Login from './Login';
 import Mypage from './Mypage';
+import ImgFile from './ImgFIle';
 //전체 로직
 import {auth,db} from "./firebase";
-import {collection, addDoc, getDocs, where, query} from "firebase/firestore";
+import {collection, addDoc,doc, updateDoc, getDocs, where, query} from "firebase/firestore";
 //회원가입 로직
 import {
   createUserWithEmailAndPassword,
@@ -30,9 +31,14 @@ function App() {
   const idRef = useRef(null);
   const pwRef = useRef(null);
   const [isLogin, setIsLogin] = useState(false);
+  const [pic, setPic] = useState("");
 //마이페이지 State
   const [myName, setMyName] = useState("");
   const [myEmail, setMyEmail] = useState("");
+  const [myImg, setMyImg] = useState(null);
+//이미지 업로드 Ref
+const modalRef = useRef(null);
+const [id, setId] = useState("");
 
 //회원가입 function
   const signUp = async ()=>{
@@ -40,13 +46,11 @@ function App() {
     const passwdStr = passwdRef.current.value;
     const nameStr = nameRef.current.value;
     const user = await createUserWithEmailAndPassword(auth,emailStr,passwdStr);
-    console.log(user);
     const user_doc = await addDoc(collection(db,"users"),{
       user_id: user.user.email, 
-      name:nameStr});
-      console.log(user_doc.id);
-      console.log(emailRef.current.value);
-      console.log(passwdRef.current.value);
+      name:nameStr,
+      myImg:null
+    });
       nameRef.current.value="";
       emailRef.current.value="";
       passwdRef.current.value="";
@@ -65,33 +69,39 @@ function App() {
         collection(db,"users"),where("user_id","==",user.email)
       ));
       user_id.forEach((u)=>{
-        console.log(u.data());
         setMyName(u.data().name);
         setMyEmail(u.data().user_id);
       });
     };
 
     const loginCheck = async (user)=>{
-
       if(user){
         setIsLogin(true);
         const user_id = await getDocs(query(
           collection(db,"users"),where("user_id","==",user.email)
         ));
         user_id.forEach((u)=>{
-          console.log(u.data());
           setMyName(u.data().name);
           setMyEmail(u.data().user_id);
+          // console.log(u.id);
+          setId(u.id);
+          setMyImg(u.data().img);
         });
       }
       else{
         setIsLogin(false);
       }
     };
+//이미지 업로드 funcrion
+const fileUpload = async (user)=>{
+  const docRef = doc(db, "users", id);
+  const user_doc = await updateDoc(docRef,{
+    "img":pic
+  });
+};
     useEffect(()=>{
       onAuthStateChanged(auth, loginCheck);
     },[]);
-    console.log(isLogin);
   return (
     <div className="App">
       <h1>회원가입로직</h1>
@@ -99,6 +109,7 @@ function App() {
       <div className="buttonContainer">
         <button className="sign" onClick={()=>{
           signContainer.current.style.display = "flex";
+          loginContainer.current.style.display = "none";
         }}>회원가입</button>
         <button className="login" onClick={()=>{
           loginContainer.current.style.display = "flex";
@@ -106,6 +117,7 @@ function App() {
       </div>
         <Sign 
           signContainer = {signContainer}
+          loginContainer = {loginContainer}
           signUp={signUp}
           nameRef={nameRef}
           emailRef={emailRef}
@@ -122,15 +134,25 @@ function App() {
           pwRef={pwRef}
           isLogin={isLogin}
           signOut={signOut}
+
         />
         {isLogin ? 
         <Mypage 
           myName={myName}
           myEmail={myEmail}
-        /> 
+          // pic={pic}
+          modalRef={modalRef}
+          myImg={myImg}
+        />
         : ""
         }
       </div>
+      <ImgFile
+        modalRef={modalRef}
+        pic={pic}
+        setPic={setPic}
+        fileUpload={fileUpload}
+      />
     </div>
   );
 }

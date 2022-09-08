@@ -1,5 +1,13 @@
 import React from "react";
-const Login = ({loginContainer, idRef, pwRef, loginFB, isLogin, signOut, auth})=>{
+const Login = ({
+    loginContainer,
+    idRef,
+    pwRef,
+    loginFB,
+    isLogin,
+    signOut,
+    auth
+    })=>{
     return(
     <>
         {isLogin? (

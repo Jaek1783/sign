@@ -1,26 +1,41 @@
 import React from "react";
 
-const Sign = ({signContainer, nameRef, emailRef, passwdRef, signUp,emailDesc, nameDesc, pwDesc})=>{
+
+const Sign = ({
+    signContainer,
+    loginContainer,
+    nameRef,
+    emailRef,
+    passwdRef,
+    signUp,
+    emailDesc,
+    nameDesc,
+    pwDesc,
+    })=>{
     return(
         <div className="signContainer" ref={signContainer}>
             <small onClick={()=>{
                 signContainer.current.style.display="none";
+                loginContainer.current.style.display="flex";
             }}>X</small>
-            <p>
-                Name
-                <input type="text" ref={nameRef}/><br/>
-                <small ref={nameDesc}></small>
-            </p>
-            <p>
-                Email
-                <input type="text" ref={emailRef}/><br/>
-                <small ref={emailDesc}></small>
-            </p>
-            <p>
-                passwd
-                <input type="text" ref={passwdRef}/><br/>
-                <small ref={pwDesc}></small>
-            </p>
+
+            <div>
+                <p>
+                    Name
+                    <input type="text" ref={nameRef}/><br/>
+                    <small ref={nameDesc}></small>
+                </p>
+                <p>
+                    Email
+                    <input type="text" ref={emailRef}/><br/>
+                    <small ref={emailDesc}></small>
+                </p>
+                <p>
+                    passwd
+                    <input type="text" ref={passwdRef}/><br/>
+                    <small ref={pwDesc}></small>
+                </p>
+            </div>
             <button  className="sign item" onClick={()=>{
                     const str01 = emailRef.current.value.includes("@");
                     const str02 = emailRef.current.value.includes(".com");
@@ -29,6 +44,8 @@ const Sign = ({signContainer, nameRef, emailRef, passwdRef, signUp,emailDesc, na
                         if(str01&&str02 === true){
                             if(passwdRef.current.value !== ""){
                                 signUp();
+                                signContainer.current.style.display="none";
+                                loginContainer.current.style.display="flex";
                             }
                             else{
                                 alert("비밀번호를 입력하세요");
