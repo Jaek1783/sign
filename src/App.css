@@ -14,8 +14,10 @@ a{
 }
 
 div.container{
+    width:700px;
     padding:.5rem;
     display:flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin:0 auto;
     text-align: center;
@@ -23,6 +25,7 @@ div.container{
     top:20%;
     left:50%;
     transform: translate(-50%);
+    /* background-color: #ccc; */
 }
 .item{
     margin:.5rem;
@@ -60,4 +63,21 @@ div.container{
 .loginContainer>button{
     margin-top:.5rem;
     padding:.5rem;
+}
+
+.MypageContainer{
+    width:700px;
+    border:1px solid #ccc;
+    display:flex;
+    padding:2rem;
+    margin-top:3rem;
+}
+.MyPic{
+    width:10rem;
+    height:12rem;
+    background-color:#ccc;
+    margin-right:2rem;
+}
+.MyDesc>p{
+    padding:1rem;
 }

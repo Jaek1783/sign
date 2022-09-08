@@ -2,10 +2,11 @@ import './App.css';
 import React,{useEffect, useRef, useState} from 'react';
 import Sign from './Sign';
 import Login from './Login';
+import Mypage from './Mypage';
 
 //전체 로직
 import {auth,db} from "./firebase";
-import {collection, addDoc} from "firebase/firestore";
+import {collection, addDoc, getDocs, where, query, connectFirestoreEmulator} from "firebase/firestore";
 //회원가입 로직
 import {
   createUserWithEmailAndPassword,
@@ -20,11 +21,17 @@ function App() {
   const emailRef = useRef(null);
   const passwdRef = useRef(null);
   const nameRef = useRef(null);
+  const emailDesc = useRef(null);
+  const nameDesc = useRef(null);
+  const pwDesc = useRef(null);
 
-//로그인 Ref
+//로그인 Ref & State
   const idRef = useRef(null);
   const pwRef = useRef(null);
   const [isLogin, setIsLogin] = useState(false);
+//마이페이지 State
+  const [myName, setMyName] = useState("");
+  const [myEmail, setMyEmail] = useState("");
 
 //회원가입 function
   const signUp = async ()=>{
@@ -45,8 +52,6 @@ function App() {
   };
   //로그인 function
     const loginFB = async()=>{
-      console.log(idRef.current.value);
-      console.log(pwRef.current.value);
       const user = await signInWithEmailAndPassword(
         auth,
         idRef.current.value,
@@ -55,18 +60,35 @@ function App() {
       idRef.current.value="";
       pwRef.current.value="";
       console.log(user);
+      const user_id = await getDocs(query(
+        collection(db,"users"),where("user_id","==",user.email)
+      ));
+      user_id.forEach((u)=>{
+        console.log(u.data());
+        setMyName(u.data().name);
+        setMyEmail(u.data().user_id);
+      });
     };
-    console.log(auth.currentUser);
+
     const loginCheck = async (user)=>{
+
       if(user){
         setIsLogin(true);
+        const user_id = await getDocs(query(
+          collection(db,"users"),where("user_id","==",user.email)
+        ));
+        user_id.forEach((u)=>{
+          console.log(u.data());
+          setMyName(u.data().name);
+          setMyEmail(u.data().user_id);
+        });
       }
       else{
         setIsLogin(false);
       }
     };
     useEffect(()=>{
-      onAuthStateChanged(auth, loginCheck); 
+      onAuthStateChanged(auth, loginCheck);
     },[]);
     console.log(isLogin);
   return (
@@ -77,6 +99,9 @@ function App() {
           nameRef={nameRef}
           emailRef={emailRef}
           passwdRef={passwdRef}
+          emailDesc={emailDesc}
+          nameDesc={nameDesc}
+          pwDesc={pwDesc}
         />
         <Login
           auth={auth}
@@ -86,6 +111,13 @@ function App() {
           isLogin={isLogin}
           signOut={signOut}
         />
+        {isLogin ? 
+        <Mypage 
+          myName={myName}
+          myEmail={myEmail}
+        /> 
+        : ""
+        }
       </div>
     </div>
   );

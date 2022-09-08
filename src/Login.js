@@ -1,5 +1,6 @@
-import React from "react";
-const Login = ({idRef, pwRef, loginFB, isLogin, signOut, auth})=>{return(
+import React,{useEffect} from "react";
+const Login = ({idRef, pwRef, loginFB, isLogin, signOut, auth})=>{
+    return(
     <div>
         {isLogin? (
             <div className="loginContainer">
