@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/jaek1783.git.io/sign/static/css/main.6dd7b490.css",
-    "main.js": "/jaek1783.git.io/sign/static/js/main.bbf127b5.js",
-    "index.html": "/jaek1783.git.io/sign/index.html",
-    "main.6dd7b490.css.map": "/jaek1783.git.io/sign/static/css/main.6dd7b490.css.map",
-    "main.bbf127b5.js.map": "/jaek1783.git.io/sign/static/js/main.bbf127b5.js.map"
+    "main.css": "/static/css/main.6dd7b490.css",
+    "main.js": "/static/js/main.bbf127b5.js",
+    "index.html": "/index.html",
+    "main.6dd7b490.css.map": "/static/css/main.6dd7b490.css.map",
+    "main.bbf127b5.js.map": "/static/js/main.bbf127b5.js.map"
   },
   "entrypoints": [
     "static/css/main.6dd7b490.css",
