@@ -16,9 +16,7 @@ https://jaek1783.github.io/sign
  * 회원가입 시 자동으로 Firestore에 img:null필드가 추가되게 하여 추후 마이페이지에서 사진 업로드를 통해 경로가 img필드에 저장되도록 구현
 
 ## 서비스 이미지
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257352-3cfffc47-b868-4a21-93c8-7e7fc37b3d4b.png"> <img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257282-ce5a6e40-d505-4436-bfd8-2c6a060bcf38.png">
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257186-95eb3de3-c2fa-4078-b544-2e040fed6c05.png"> <img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257569-b652ad68-76eb-4278-88a9-1f34e96939c1.png">
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257636-ba328441-c38c-414e-ae09-f48e02ffa82e.png"> <img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189258009-665a18ba-d4a6-45bc-b790-4db09d3135f7.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257352-3cfffc47-b868-4a21-93c8-7e7fc37b3d4b.png"><img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257282-ce5a6e40-d505-4436-bfd8-2c6a060bcf38.png"><img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257186-95eb3de3-c2fa-4078-b544-2e040fed6c05.png"><img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257569-b652ad68-76eb-4278-88a9-1f34e96939c1.png"><img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189257636-ba328441-c38c-414e-ae09-f48e02ffa82e.png"><img width="500" alt="image" src="https://user-images.githubusercontent.com/73649967/189258009-665a18ba-d4a6-45bc-b790-4db09d3135f7.png">
 
 ## 사용스택
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white"/>
